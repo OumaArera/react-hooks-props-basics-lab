@@ -3,16 +3,17 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import About from "./About";
 
-// pass this data down as props to the child component(s) that need it!
+// Import the user data
 import user from "../data/user";
-console.log(user);
 
 function App() {
   return (
     <div>
       <NavBar />
-      <Home />
-      <About />
+      {/* Pass data from the user object as props to the Home component */}
+      <Home name={user.name} city={user.city} />
+      {/* Pass the 'bio', 'github', and 'linkedin' data as props to the About component */}
+      <About bio={user.bio} github={user.links.github} linkedin={user.links.linkedin} />
     </div>
   );
 }
